@@ -65,6 +65,11 @@ public class DrawingArea extends javax.swing.JPanel {
                 Image pastgame =  Toolkit.getDefaultToolkit().getImage("saved.png");
                 g.drawImage(pastgame, 0, 0, this);
                 break;
+            case 4:
+                 Image pauseMenu =  Toolkit.getDefaultToolkit().getImage("paused_menu.png");
+                g.drawImage(pauseMenu, 0, 0, this);
+                
+                break;
         }   
 
     }
@@ -96,6 +101,29 @@ public class DrawingArea extends javax.swing.JPanel {
             scene = 2;
             runGameStartUp = false;
         }
+    }
+    
+    public void restart(){
+        try {
+                map = ImageIO.read(new File(mapName));
+            } catch (IOException e) {
+                System.out.println("HEEEELLLPPPPP!!!!!!");
+            }
+            ground = new boolean[map.getHeight()][map.getWidth()];
+            ground = groundDetect();
+            player1 = new CPlayer();
+            player2 = new CPlayer();
+            player1.placeRandom(ground);
+            player2.placeRandom(ground);
+            bubble1 = new CRandomWeaponBubble();
+            bubble1.generate(ground);
+            bubble2 = new CRandomWeaponBubble();
+            bubble2.generate(ground);
+
+            gun1 = new CGun();
+            gun2 = new CGun();
+            scene = 2;
+            runGameStartUp = false;
     }
 
     public void game(Graphics g) {
