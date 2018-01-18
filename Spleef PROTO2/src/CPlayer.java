@@ -1,4 +1,3 @@
-
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
@@ -22,7 +21,7 @@ public class CPlayer {
     int velocity = 0;
     int size = 20;
     boolean canJump = true;
-     boolean lost= false;
+    boolean lost = false;
 
     public void update(boolean[][] ground) {
 
@@ -46,12 +45,12 @@ public class CPlayer {
                 horizontalVelocity = 0;
                 playerx++;
             }
-            
-             if (ground[playery -1][playerx + i] == true) {
-                
+
+            if (ground[playery - 1][playerx + i] == true) {
+
                 playery++;
                 velocity = 0;
-                
+
             }
         }
 
@@ -67,33 +66,30 @@ public class CPlayer {
         //prevent player from leaving array
         if (playerx - horizontalVelocity - size <= 0) {
             playerx = horizontalVelocity + size;
-        } else if (playerx + size + horizontalVelocity >= ground[0].length-40) {
-            playerx = ground[0].length -40 - horizontalVelocity - size;
+        } else if (playerx + size + horizontalVelocity >= ground[0].length - 40) {
+            playerx = ground[0].length - 40 - horizontalVelocity - size;
         }
 
         //player loses
-         
         if (playery > ground.length - 30) {
             velocity = 0;
             playery--;
             lost = true;
             System.out.println("Loser");
         }
-        
-      
 
     }
 
     int horizontalVelocity = 0;
     int maxHorizontalVelocity = 5;
 
-    public void show(Graphics g,Image[] avatar,int avatarIndex,ImageObserver io) {
-        if(faceDirection==1){
-            g.drawImage(avatar[avatarIndex], playerx, playery, size,size,io);
-        }else if(faceDirection==-1){
-            g.drawImage(avatar[avatarIndex], playerx+size, playery, size*faceDirection,size,io);
+    public void show(Graphics g, Image[] avatar, int avatarIndex, ImageObserver io) {
+        if (faceDirection == 1) {
+            g.drawImage(avatar[avatarIndex], playerx, playery, size, size, io);
+        } else if (faceDirection == -1) {
+            g.drawImage(avatar[avatarIndex], playerx + size, playery, size * faceDirection, size, io);
         }
-        
+
     }
 
     int faceDirection = 1;
@@ -115,7 +111,7 @@ public class CPlayer {
     }
 
     public void jump() {
-        System.out.println("hi");
+
         if (canJump == true) {
             playery -= 5;
             velocity = -17;
@@ -126,16 +122,26 @@ public class CPlayer {
     public void stop() {
         horizontalVelocity = 0;
     }
-    
-    Random ran  = new Random();
-    public void placeRandom(boolean[][] ground){
-        
+
+    Random ran = new Random();
+
+    public void placeRandom(boolean[][] ground) {
+
         //spawn always on ground???
-         playerx =ran.nextInt(ground[0].length - 50);
-        
-        
-        
+        boolean isThereGround = false;
+
+        do {
+            playerx = ran.nextInt(ground[0].length - 50);
+            for (int y = 0; y < ground.length; y++) {
+                for (int i = -size; i < size+size; i++) {
+                    if (ground[y][playerx + i-1] == true) {
+                        isThereGround = true;
+                    }
+                }
+
+            }
+        } while (isThereGround == false);
+
     }
 
-   
 }

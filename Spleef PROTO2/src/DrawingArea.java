@@ -175,6 +175,8 @@ public class DrawingArea extends javax.swing.JPanel {
 
         if (player1.lost == true) {
             System.out.println("player 2 wins");
+            Image p2win =  Toolkit.getDefaultToolkit().getImage("player2wins.png");
+            g.drawImage(p2win, WIDTH, WIDTH, this);
 
             try {
                 // retrieve image
@@ -189,7 +191,8 @@ public class DrawingArea extends javax.swing.JPanel {
         } else if (player2.lost == true) {
 
             System.out.println("player 1 wins");
-            
+            Image p1win =  Toolkit.getDefaultToolkit().getImage("player1wins.png");
+            g.drawImage(p1win, WIDTH, WIDTH, this);
               try {
                 // retrieve image
 

@@ -203,17 +203,18 @@ public class MainFrame extends javax.swing.JFrame {
                 drawingArea1.player2.moveRight();
                 break;
             case 76:
-                if (drawingArea1.gun1.canShoot == true) {
+                if (drawingArea1.gun2.canShoot == true) {
                     drawingArea1.gun2.shoot(drawingArea1.player2.playerx, drawingArea1.player2.playery, drawingArea1.player2.faceDirection);
                 }
                 break;
 
             case 27:
-                if (drawingArea1.scene == 2) {
+                if ((drawingArea1.scene == 2)||(drawingArea1.scene==3)) {
                     drawingArea1.scene = 4;
                     MainMenuButt.setVisible(true);
                     QuitButt.setVisible(true);
                     RestartButt.setVisible(true);
+                    drawingArea1.t1.start();
                 } else if (drawingArea1.scene == 4) {
                     drawingArea1.scene = 2;
                     MainMenuButt.setVisible(false);
@@ -288,6 +289,7 @@ public class MainFrame extends javax.swing.JFrame {
         MainMenuButt.setVisible(false);
         QuitButt.setVisible(false);
         RestartButt.setVisible(false);
+        
         
     }//GEN-LAST:event_RestartButtActionPerformed
 
