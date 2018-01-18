@@ -1,3 +1,4 @@
+
 import java.awt.Color;
 
 /*
@@ -31,10 +32,13 @@ public class MainFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         drawingArea1 = new DrawingArea();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        MapChoice1Butt = new javax.swing.JButton();
+        MapChoice2Butt = new javax.swing.JButton();
+        MapChoice3Butt = new javax.swing.JButton();
+        SeePastGamesButt = new javax.swing.JButton();
+        RestartButt = new javax.swing.JButton();
+        MainMenuButt = new javax.swing.JButton();
+        QuitButt = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1150, 920));
@@ -47,35 +51,62 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setFocusable(false);
-        jButton1.setText("Country");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        MapChoice1Butt.setFocusable(false);
+        MapChoice1Butt.setText("Country");
+        MapChoice1Butt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                MapChoice1ButtActionPerformed(evt);
             }
         });
 
-        jButton2.setFocusable(false);
-        jButton2.setText("Heavens");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        MapChoice2Butt.setFocusable(false);
+        MapChoice2Butt.setText("Heavens");
+        MapChoice2Butt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                MapChoice2ButtActionPerformed(evt);
             }
         });
 
-        jButton3.setFocusable(false);
-        jButton3.setText("Hell");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        MapChoice3Butt.setFocusable(false);
+        MapChoice3Butt.setText("Hell");
+        MapChoice3Butt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                MapChoice3ButtActionPerformed(evt);
             }
         });
 
-        jButton4.setFocusable(false);
-        jButton4.setText("See Past Games");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        SeePastGamesButt.setFocusable(false);
+        SeePastGamesButt.setText("See Past Games");
+        SeePastGamesButt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                SeePastGamesButtActionPerformed(evt);
+            }
+        });
+
+        RestartButt.setFocusable(false);
+        RestartButt.setVisible(false);
+        RestartButt.setText("Restart");
+        RestartButt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RestartButtActionPerformed(evt);
+            }
+        });
+
+        MainMenuButt.setFocusable(false);
+        MainMenuButt.setVisible(false);
+        MainMenuButt.setText("Main Menu");
+        MainMenuButt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MainMenuButtActionPerformed(evt);
+            }
+        });
+
+        QuitButt.setFocusable(false);
+        QuitButt.setVisible(false);
+        QuitButt.setText("Quit Game");
+        QuitButt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                QuitButtActionPerformed(evt);
             }
         });
 
@@ -87,26 +118,37 @@ public class MainFrame extends javax.swing.JFrame {
                 .addContainerGap(557, Short.MAX_VALUE)
                 .addGroup(drawingArea1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, drawingArea1Layout.createSequentialGroup()
-                        .addGroup(drawingArea1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(519, 519, 519))
+                        .addComponent(SeePastGamesButt)
+                        .addGap(499, 499, 499))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, drawingArea1Layout.createSequentialGroup()
-                        .addComponent(jButton4)
-                        .addGap(499, 499, 499))))
+                        .addGroup(drawingArea1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(drawingArea1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(QuitButt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(MainMenuButt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(RestartButt, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(drawingArea1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(MapChoice2Butt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(MapChoice1Butt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(MapChoice3Butt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGap(519, 519, 519))))
         );
         drawingArea1Layout.setVerticalGroup(
             drawingArea1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, drawingArea1Layout.createSequentialGroup()
-                .addContainerGap(390, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addContainerGap(291, Short.MAX_VALUE)
+                .addComponent(RestartButt)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton2)
+                .addComponent(MainMenuButt)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton3)
+                .addComponent(QuitButt)
+                .addGap(18, 18, 18)
+                .addComponent(MapChoice1Butt)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(MapChoice2Butt)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(MapChoice3Butt)
                 .addGap(85, 85, 85)
-                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(SeePastGamesButt, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(223, 223, 223))
         );
 
@@ -165,9 +207,22 @@ public class MainFrame extends javax.swing.JFrame {
                     drawingArea1.gun2.shoot(drawingArea1.player2.playerx, drawingArea1.player2.playery, drawingArea1.player2.faceDirection);
                 }
                 break;
-        }
 
-        System.out.println("Hello");
+            case 27:
+                if (drawingArea1.scene == 2) {
+                    drawingArea1.scene = 4;
+                    MainMenuButt.setVisible(true);
+                    QuitButt.setVisible(true);
+                    RestartButt.setVisible(true);
+                } else if (drawingArea1.scene == 4) {
+                    drawingArea1.scene = 2;
+                    MainMenuButt.setVisible(false);
+                    QuitButt.setVisible(false);
+                    RestartButt.setVisible(false);
+                }
+
+                break;
+        }
 
 
     }//GEN-LAST:event_formKeyPressed
@@ -185,45 +240,73 @@ public class MainFrame extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_drawingArea1MousePressed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void MapChoice1ButtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MapChoice1ButtActionPerformed
         // TODO add your handling code here:
         drawingArea1.runGameStartUp = true;
         drawingArea1.mapName = "Map.png";
-        drawingArea1.remove(jButton1);
-        drawingArea1.remove(jButton2);
-        drawingArea1.remove(jButton3);
-        drawingArea1.remove(jButton4);
-    }//GEN-LAST:event_jButton1ActionPerformed
+        MapChoice1Butt.setVisible(false);
+        MapChoice2Butt.setVisible(false);
+        MapChoice3Butt.setVisible(false);
+        SeePastGamesButt.setVisible(false);
+    }//GEN-LAST:event_MapChoice1ButtActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void MapChoice2ButtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MapChoice2ButtActionPerformed
         // TODO add your handling code here:
         drawingArea1.runGameStartUp = true;
         drawingArea1.mapName = "map_sky.png";
-        drawingArea1.remove(jButton1);
-        drawingArea1.remove(jButton2);
-        drawingArea1.remove(jButton3);
-        drawingArea1.remove(jButton4);
-    }//GEN-LAST:event_jButton2ActionPerformed
+        MapChoice1Butt.setVisible(false);
+        MapChoice2Butt.setVisible(false);
+        MapChoice3Butt.setVisible(false);
+        SeePastGamesButt.setVisible(false);
+    }//GEN-LAST:event_MapChoice2ButtActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void MapChoice3ButtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MapChoice3ButtActionPerformed
         // TODO add your handling code here:
-         drawingArea1.runGameStartUp = true;
+        drawingArea1.runGameStartUp = true;
         drawingArea1.mapName = "map hell.png";
-        drawingArea1.remove(jButton1);
-        drawingArea1.remove(jButton2);
-        drawingArea1.remove(jButton3);
-        drawingArea1.remove(jButton4);
-    }//GEN-LAST:event_jButton3ActionPerformed
+        MapChoice1Butt.setVisible(false);
+        MapChoice2Butt.setVisible(false);
+        MapChoice3Butt.setVisible(false);
+        SeePastGamesButt.setVisible(false);
+    }//GEN-LAST:event_MapChoice3ButtActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void SeePastGamesButtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SeePastGamesButtActionPerformed
         // TODO add your handling code here:
-         drawingArea1.scene = 3;
+        drawingArea1.scene = 3;
 
-        drawingArea1.remove(jButton1);
-        drawingArea1.remove(jButton2);
-        drawingArea1.remove(jButton3);
-        drawingArea1.remove(jButton4);
-    }//GEN-LAST:event_jButton4ActionPerformed
+        MapChoice1Butt.setVisible(false);
+        MapChoice2Butt.setVisible(false);
+        MapChoice3Butt.setVisible(false);
+        SeePastGamesButt.setVisible(false);
+    }//GEN-LAST:event_SeePastGamesButtActionPerformed
+
+    private void RestartButtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RestartButtActionPerformed
+        // TODO add your handling code here:
+        drawingArea1.restart(); 
+        drawingArea1.scene = 2;
+      
+        MainMenuButt.setVisible(false);
+        QuitButt.setVisible(false);
+        RestartButt.setVisible(false);
+        
+    }//GEN-LAST:event_RestartButtActionPerformed
+
+    private void MainMenuButtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MainMenuButtActionPerformed
+        // TODO add your handling code here:
+        drawingArea1.scene = 1;
+        MapChoice1Butt.setVisible(true);
+        MapChoice2Butt.setVisible(true);
+        MapChoice3Butt.setVisible(true);
+        SeePastGamesButt.setVisible(true);
+        MainMenuButt.setVisible(false);
+        QuitButt.setVisible(false);
+        RestartButt.setVisible(false);
+    }//GEN-LAST:event_MainMenuButtActionPerformed
+
+    private void QuitButtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_QuitButtActionPerformed
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_QuitButtActionPerformed
 
     /**
      * @param args the command line arguments
@@ -264,10 +347,13 @@ public class MainFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton MainMenuButt;
+    private javax.swing.JButton MapChoice1Butt;
+    private javax.swing.JButton MapChoice2Butt;
+    private javax.swing.JButton MapChoice3Butt;
+    private javax.swing.JButton QuitButt;
+    private javax.swing.JButton RestartButt;
+    private javax.swing.JButton SeePastGamesButt;
     private DrawingArea drawingArea1;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     // End of variables declaration//GEN-END:variables
 }
