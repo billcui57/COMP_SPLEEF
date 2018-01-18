@@ -48,7 +48,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
 
         jButton1.setFocusable(false);
-        jButton1.setText("jButton1");
+        jButton1.setText("Country");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -56,7 +56,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
 
         jButton2.setFocusable(false);
-        jButton2.setText("jButton2");
+        jButton2.setText("Heavens");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -64,7 +64,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
 
         jButton3.setFocusable(false);
-        jButton3.setText("jButton3");
+        jButton3.setText("Hell");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
@@ -72,7 +72,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
 
         jButton4.setFocusable(false);
-        jButton4.setText("jButton4");
+        jButton4.setText("See Past Games");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
@@ -84,32 +84,30 @@ public class MainFrame extends javax.swing.JFrame {
         drawingArea1Layout.setHorizontalGroup(
             drawingArea1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(drawingArea1Layout.createSequentialGroup()
+                .addContainerGap(557, Short.MAX_VALUE)
                 .addGroup(drawingArea1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(drawingArea1Layout.createSequentialGroup()
-                        .addGap(451, 451, 451)
-                        .addGroup(drawingArea1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton2)
-                            .addComponent(jButton1)))
-                    .addGroup(drawingArea1Layout.createSequentialGroup()
-                        .addGap(433, 433, 433)
-                        .addComponent(jButton3))
-                    .addGroup(drawingArea1Layout.createSequentialGroup()
-                        .addGap(473, 473, 473)
-                        .addComponent(jButton4)))
-                .addContainerGap(619, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, drawingArea1Layout.createSequentialGroup()
+                        .addGroup(drawingArea1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(519, 519, 519))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, drawingArea1Layout.createSequentialGroup()
+                        .addComponent(jButton4)
+                        .addGap(499, 499, 499))))
         );
         drawingArea1Layout.setVerticalGroup(
             drawingArea1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(drawingArea1Layout.createSequentialGroup()
-                .addGap(167, 167, 167)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, drawingArea1Layout.createSequentialGroup()
+                .addContainerGap(390, Short.MAX_VALUE)
                 .addComponent(jButton1)
-                .addGap(87, 87, 87)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton2)
-                .addGap(59, 59, 59)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton3)
-                .addGap(57, 57, 57)
-                .addComponent(jButton4)
-                .addContainerGap(365, Short.MAX_VALUE))
+                .addGap(85, 85, 85)
+                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(223, 223, 223))
         );
 
         getContentPane().add(drawingArea1, java.awt.BorderLayout.CENTER);
