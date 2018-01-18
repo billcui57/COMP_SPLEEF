@@ -1,5 +1,5 @@
-
 import java.awt.Color;
+import javax.swing.ImageIcon;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -19,6 +19,9 @@ public class MainFrame extends javax.swing.JFrame {
         initComponents();
         drawingArea1.timer();
         drawingArea1.t1.start();
+        this.setTitle("Smashing!");
+        ImageIcon img = new ImageIcon("sprite_00.png");
+        this.setIconImage(img.getImage());
 
     }
 
@@ -50,6 +53,8 @@ public class MainFrame extends javax.swing.JFrame {
                 formKeyReleased(evt);
             }
         });
+
+        drawingArea1.setName(""); // NOI18N
 
         MapChoice1Butt.setFocusable(false);
         MapChoice1Butt.setText("Country");
@@ -209,7 +214,7 @@ public class MainFrame extends javax.swing.JFrame {
                 break;
 
             case 27:
-                if ((drawingArea1.scene == 2)||(drawingArea1.scene==3)) {
+                if ((drawingArea1.scene == 2)) {
                     drawingArea1.scene = 4;
                     MainMenuButt.setVisible(true);
                     QuitButt.setVisible(true);
@@ -220,6 +225,13 @@ public class MainFrame extends javax.swing.JFrame {
                     MainMenuButt.setVisible(false);
                     QuitButt.setVisible(false);
                     RestartButt.setVisible(false);
+                } else if (drawingArea1.scene == 3) {
+                     drawingArea1.scene =1;
+                    MapChoice1Butt.setVisible(true);
+                    MapChoice2Butt.setVisible(true);
+                    MapChoice3Butt.setVisible(true);
+                    SeePastGamesButt.setVisible(true);
+                    
                 }
 
                 break;
@@ -283,14 +295,14 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void RestartButtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RestartButtActionPerformed
         // TODO add your handling code here:
-        drawingArea1.restart(); 
+        drawingArea1.restart();
         drawingArea1.scene = 2;
-      
+
         MainMenuButt.setVisible(false);
         QuitButt.setVisible(false);
         RestartButt.setVisible(false);
-        
-        
+
+
     }//GEN-LAST:event_RestartButtActionPerformed
 
     private void MainMenuButtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MainMenuButtActionPerformed
@@ -343,6 +355,7 @@ public class MainFrame extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new MainFrame().setVisible(true);
+                
             }
         });
 
