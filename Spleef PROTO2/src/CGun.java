@@ -15,11 +15,11 @@ import java.util.Collections;
  */
 public class CGun {
 
-    int[] bulletx = new int[20];
-    int[] bullety = new int[20];
+    int[] bulletx = new int[100];
+    int[] bullety = new int[100];
     int maxbullet;
-    int[] velocity = new int[20];
-    int[] direction = new int[20];
+    int[] velocity = new int[100];
+    int[] direction = new int[100];
     boolean canShoot;
     int weapontype = 1;
 
@@ -48,7 +48,7 @@ public class CGun {
     int machineGunCount = 0;
 
     public void machineGunShoot(int playerx, int playery, int faceWhere) {
-        maxbullet = 20;
+        maxbullet = 40;
         if (canShoot == true) {
             bulletx[machineGunCount] = playerx;
             bullety[machineGunCount] = playery;
@@ -56,7 +56,7 @@ public class CGun {
 
             bulletspread = 0;
             blastradius = 15;
-            velocity[machineGunCount] = 5;
+            velocity[machineGunCount] = 20;
             machineGunCount++;
             if (machineGunCount == maxbullet) {
                 canShoot = false;
@@ -88,7 +88,7 @@ public class CGun {
             for (int i = 0; i < maxbullet; i++) {
                 bulletx[i] = playerx;
                 bullety[i] = playery;
-                velocity[i] = 5;
+                velocity[i] = 10;
                 direction[i] = faceWhere;
             }
 
@@ -109,7 +109,7 @@ public class CGun {
             canShoot = false;
             bulletspread = 0;
             blastradius = 50;
-            velocity[0] = 5;
+            velocity[0] = 15;
         }
     }
 

@@ -22,6 +22,7 @@ public class MainFrame extends javax.swing.JFrame {
         this.setTitle("Smashing!");
         ImageIcon img = new ImageIcon("sprite_00.png");
         this.setIconImage(img.getImage());
+        this.setResizable(false);
 
     }
 
@@ -55,6 +56,11 @@ public class MainFrame extends javax.swing.JFrame {
         });
 
         drawingArea1.setName(""); // NOI18N
+        drawingArea1.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                drawingArea1MouseMoved(evt);
+            }
+        });
 
         MapChoice1Butt.setFocusable(false);
         MapChoice1Butt.setText("Country");
@@ -321,6 +327,10 @@ public class MainFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         System.exit(0);
     }//GEN-LAST:event_QuitButtActionPerformed
+
+    private void drawingArea1MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_drawingArea1MouseMoved
+        // TODO add your handling code here:
+    }//GEN-LAST:event_drawingArea1MouseMoved
 
     /**
      * @param args the command line arguments
