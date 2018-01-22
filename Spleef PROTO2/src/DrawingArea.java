@@ -71,10 +71,20 @@ public class DrawingArea extends javax.swing.JPanel {
             case 4:
                 Image pauseMenu = Toolkit.getDefaultToolkit().getImage("paused_menu.png");
                 g.drawImage(pauseMenu, 0, 0, this);
-
+                break;
+            case 5:
+                tutorial(g,1);
+                break;
+            case 6:
+                tutorial(g,2);
                 break;
         }
 
+    }
+
+    public void tutorial(Graphics g, int page) {
+        Image tutorial = Toolkit.getDefaultToolkit().getImage("tutorial" + page + ".png");
+        g.drawImage(tutorial, 0, 0, this);
     }
 
     public void menu(Graphics g) {
@@ -89,8 +99,7 @@ public class DrawingArea extends javax.swing.JPanel {
         startUp();
     }
 
-    
-    public void startUp(){
+    public void startUp() {
         //game start up all players and bubbles reset
         try {
             map = ImageIO.read(new File(mapName));
@@ -113,8 +122,9 @@ public class DrawingArea extends javax.swing.JPanel {
         scene = 2;
         runGameStartUp = false;
     }
+
     public void game(Graphics g) {
-        
+
         //draws map
         g.drawImage(map, 0, 0, this);
 
@@ -132,7 +142,6 @@ public class DrawingArea extends javax.swing.JPanel {
         gun2.update(player2.playerx, player2.playery, ground, map);
         gun2.show(g);
 
-        
         //detects bubble and player collision
         if ((player1.right > bubble1.bubblex) && (player1.playerx < bubble1.right)
                 && (player1.bottom > bubble1.bubbley) && (player1.playery < bubble1.bottom)) {

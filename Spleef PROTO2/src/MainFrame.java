@@ -43,6 +43,9 @@ public class MainFrame extends javax.swing.JFrame {
         RestartButt = new javax.swing.JButton();
         MainMenuButt = new javax.swing.JButton();
         QuitButt = new javax.swing.JButton();
+        TutorialButton = new javax.swing.JButton();
+        NextPageButton = new javax.swing.JButton();
+        PreviousPageButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1150, 920));
@@ -121,6 +124,32 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
+        TutorialButton.setText("Tutorial");
+        TutorialButton.setFocusable(false);
+        TutorialButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TutorialButtonActionPerformed(evt);
+            }
+        });
+
+        NextPageButton.setVisible(false);
+        NextPageButton.setText("Next Page");
+        NextPageButton.setFocusable(false);
+        NextPageButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NextPageButtonActionPerformed(evt);
+            }
+        });
+
+        PreviousPageButton.setVisible(false);
+        PreviousPageButton.setFocusable(false);
+        PreviousPageButton.setText("Previous Page");
+        PreviousPageButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PreviousPageButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout drawingArea1Layout = new javax.swing.GroupLayout(drawingArea1);
         drawingArea1.setLayout(drawingArea1Layout);
         drawingArea1Layout.setHorizontalGroup(
@@ -129,24 +158,31 @@ public class MainFrame extends javax.swing.JFrame {
                 .addContainerGap(557, Short.MAX_VALUE)
                 .addGroup(drawingArea1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, drawingArea1Layout.createSequentialGroup()
-                        .addComponent(SeePastGamesButt)
+                        .addComponent(PreviousPageButton, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(NextPageButton, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(92, 92, 92))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, drawingArea1Layout.createSequentialGroup()
+                        .addGroup(drawingArea1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(SeePastGamesButt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(TutorialButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(499, 499, 499))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, drawingArea1Layout.createSequentialGroup()
                         .addGroup(drawingArea1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(drawingArea1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(QuitButt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(MainMenuButt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(RestartButt, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(drawingArea1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(MapChoice2Butt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(MapChoice1Butt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(MapChoice3Butt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addGap(519, 519, 519))))
+                                .addComponent(MapChoice3Butt, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(drawingArea1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(QuitButt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(MainMenuButt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(RestartButt, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(512, 512, 512))))
         );
         drawingArea1Layout.setVerticalGroup(
             drawingArea1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, drawingArea1Layout.createSequentialGroup()
-                .addContainerGap(291, Short.MAX_VALUE)
+                .addContainerGap(226, Short.MAX_VALUE)
                 .addComponent(RestartButt)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(MainMenuButt)
@@ -158,9 +194,15 @@ public class MainFrame extends javax.swing.JFrame {
                 .addComponent(MapChoice2Butt)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(MapChoice3Butt)
-                .addGap(85, 85, 85)
+                .addGap(102, 102, 102)
                 .addComponent(SeePastGamesButt, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(223, 223, 223))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(TutorialButton, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(128, 128, 128)
+                .addGroup(drawingArea1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(NextPageButton, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+                    .addComponent(PreviousPageButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(48, 48, 48))
         );
 
         getContentPane().add(drawingArea1, java.awt.BorderLayout.CENTER);
@@ -245,14 +287,16 @@ public class MainFrame extends javax.swing.JFrame {
                     MainMenuButt.setVisible(false);
                     QuitButt.setVisible(false);
                     RestartButt.setVisible(false);
-                } else if (drawingArea1.scene == 3) {
+                } else if ((drawingArea1.scene == 3)||(drawingArea1.scene == 5)||(drawingArea1.scene == 6)) {
                      drawingArea1.scene =1;
                     MapChoice1Butt.setVisible(true);
                     MapChoice2Butt.setVisible(true);
                     MapChoice3Butt.setVisible(true);
                     SeePastGamesButt.setVisible(true);
-                    
-                }
+                    TutorialButton.setVisible(true);
+                    PreviousPageButton.setVisible(false);
+                    NextPageButton.setVisible(false);
+                } 
 
                 break;
         }
@@ -285,6 +329,7 @@ public class MainFrame extends javax.swing.JFrame {
         MapChoice2Butt.setVisible(false);
         MapChoice3Butt.setVisible(false);
         SeePastGamesButt.setVisible(false);
+        TutorialButton.setVisible(false);
     }//GEN-LAST:event_MapChoice1ButtActionPerformed
 
     private void MapChoice2ButtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MapChoice2ButtActionPerformed
@@ -297,6 +342,7 @@ public class MainFrame extends javax.swing.JFrame {
         MapChoice2Butt.setVisible(false);
         MapChoice3Butt.setVisible(false);
         SeePastGamesButt.setVisible(false);
+        TutorialButton.setVisible(false);
     }//GEN-LAST:event_MapChoice2ButtActionPerformed
 
     private void MapChoice3ButtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MapChoice3ButtActionPerformed
@@ -309,6 +355,7 @@ public class MainFrame extends javax.swing.JFrame {
         MapChoice2Butt.setVisible(false);
         MapChoice3Butt.setVisible(false);
         SeePastGamesButt.setVisible(false);
+        TutorialButton.setVisible(false);
     }//GEN-LAST:event_MapChoice3ButtActionPerformed
 
     private void SeePastGamesButtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SeePastGamesButtActionPerformed
@@ -321,6 +368,7 @@ public class MainFrame extends javax.swing.JFrame {
         MapChoice2Butt.setVisible(false);
         MapChoice3Butt.setVisible(false);
         SeePastGamesButt.setVisible(false);
+        TutorialButton.setVisible(false);
     }//GEN-LAST:event_SeePastGamesButtActionPerformed
 
     private void RestartButtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RestartButtActionPerformed
@@ -349,6 +397,7 @@ public class MainFrame extends javax.swing.JFrame {
         MainMenuButt.setVisible(false);
         QuitButt.setVisible(false);
         RestartButt.setVisible(false);
+        TutorialButton.setVisible(true);
     }//GEN-LAST:event_MainMenuButtActionPerformed
 
     private void QuitButtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_QuitButtActionPerformed
@@ -363,6 +412,30 @@ public class MainFrame extends javax.swing.JFrame {
         
         //place holder for future rocket movement that follows mouse
     }//GEN-LAST:event_drawingArea1MouseMoved
+
+    private void TutorialButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TutorialButtonActionPerformed
+        // TODO add your handling code here:
+        drawingArea1.scene=5;
+        TutorialButton.setVisible(false);
+        MapChoice1Butt.setVisible(false);
+        MapChoice2Butt.setVisible(false);
+        MapChoice3Butt.setVisible(false);
+        SeePastGamesButt.setVisible(false);
+        PreviousPageButton.setVisible(true);
+        NextPageButton.setVisible(true);
+    }//GEN-LAST:event_TutorialButtonActionPerformed
+
+    private void PreviousPageButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PreviousPageButtonActionPerformed
+        // TODO add your handling code here:
+        drawingArea1.scene=5;
+       
+    }//GEN-LAST:event_PreviousPageButtonActionPerformed
+
+    private void NextPageButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NextPageButtonActionPerformed
+        // TODO add your handling code here:
+        drawingArea1.scene=6;
+       
+    }//GEN-LAST:event_NextPageButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -408,9 +481,12 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton MapChoice1Butt;
     private javax.swing.JButton MapChoice2Butt;
     private javax.swing.JButton MapChoice3Butt;
+    private javax.swing.JButton NextPageButton;
+    private javax.swing.JButton PreviousPageButton;
     private javax.swing.JButton QuitButt;
     private javax.swing.JButton RestartButt;
     private javax.swing.JButton SeePastGamesButt;
+    private javax.swing.JButton TutorialButton;
     private DrawingArea drawingArea1;
     // End of variables declaration//GEN-END:variables
 }
