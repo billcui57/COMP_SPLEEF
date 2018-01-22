@@ -28,6 +28,7 @@ public class CPlayer {
 
 
     public void update(boolean[][] ground) {
+        //player moves to input
         right= playerx + size;
         bottom= playery +size;
         boolean fall = true;
@@ -52,10 +53,8 @@ public class CPlayer {
             }
 
             if (ground[playery - 1][playerx + i] == true) {
-
                 playery++;
                 velocity = 0;
-
             }
         }
 
@@ -89,6 +88,7 @@ public class CPlayer {
     int horizontalVelocity = 0;
     int maxHorizontalVelocity = 5;
 
+    //shows player
     public void show(Graphics g, Image[] avatar, int avatarIndex, ImageObserver io) {
         if (faceDirection == 1) {
             g.drawImage(avatar[avatarIndex], playerx, playery, size, size, io);
@@ -131,6 +131,7 @@ public class CPlayer {
 
     Random ran = new Random();
 
+    //places player randomly
     public void placeRandom(boolean[][] ground) {
 
         //spawn always on ground???

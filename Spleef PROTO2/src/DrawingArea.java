@@ -28,6 +28,7 @@ public class DrawingArea extends javax.swing.JPanel {
     public DrawingArea() {
         initComponents();
 
+        //player animation
         avatar = new Image[10];
         for (int i = 0; i < avatar.length; i++) {
             avatar[i] = Toolkit.getDefaultToolkit().getImage("sprite_0" + i + ".png");
@@ -55,6 +56,7 @@ public class DrawingArea extends javax.swing.JPanel {
 
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
+        //scenes
         switch (scene) {
             case 1:
                 menu(g);
@@ -76,33 +78,20 @@ public class DrawingArea extends javax.swing.JPanel {
     }
 
     public void menu(Graphics g) {
+        //main menu
         g.drawImage(mainMenu, 0, 0, this);
         if (runGameStartUp == true) {
-            try {
-                map = ImageIO.read(new File(mapName));
-            } catch (IOException e) {
-                System.out.println("HEEEELLLPPPPP!!!!!!");
-            }
-            ground = new boolean[map.getHeight()][map.getWidth()];
-            ground = groundDetect();
-
-            player1 = new CPlayer();
-            player2 = new CPlayer();
-            player1.placeRandom(ground);
-            player2.placeRandom(ground);
-            bubble1 = new CRandomWeaponBubble();
-            bubble1.generate(ground);
-            bubble2 = new CRandomWeaponBubble();
-            bubble2.generate(ground);
-
-            gun1 = new CGun();
-            gun2 = new CGun();
-            scene = 2;
-            runGameStartUp = false;
+            startUp();
         }
     }
 
     public void restart() {
+        startUp();
+    }
+
+    
+    public void startUp(){
+        //game start up all players and bubbles reset
         try {
             map = ImageIO.read(new File(mapName));
         } catch (IOException e) {
@@ -124,10 +113,13 @@ public class DrawingArea extends javax.swing.JPanel {
         scene = 2;
         runGameStartUp = false;
     }
-
     public void game(Graphics g) {
+        
+        //draws map
         g.drawImage(map, 0, 0, this);
 
+        //updates and shows players
+        //updates and shows bullets
         player1.show(g, avatar, avatarIndex, this);
         player1.update(ground);
         g.drawString("1", player1.playerx, player1.playery);
@@ -140,6 +132,8 @@ public class DrawingArea extends javax.swing.JPanel {
         gun2.update(player2.playerx, player2.playery, ground, map);
         gun2.show(g);
 
+        
+        //detects bubble and player collision
         if ((player1.right > bubble1.bubblex) && (player1.playerx < bubble1.right)
                 && (player1.bottom > bubble1.bubbley) && (player1.playery < bubble1.bottom)) {
             gun1.weapontype = bubble1.gun + 2;
@@ -168,19 +162,23 @@ public class DrawingArea extends javax.swing.JPanel {
 
         }
 
+        //draws bubbles
         bubble1.draw(g);
         bubble2.draw(g);
 
+        //animation
         avatarIndex++;
         if (avatarIndex == avatar.length) {
             avatarIndex = 0;
         }
 
+        //test if anyone won
         if (player1.lost == true) {
             System.out.println("player 2 wins");
             Image p2win = Toolkit.getDefaultToolkit().getImage("player2wins.png");
             g.drawImage(p2win, WIDTH, WIDTH, this);
 
+            //writes map to .png
             try {
                 // retrieve image
 
@@ -210,7 +208,7 @@ public class DrawingArea extends javax.swing.JPanel {
     }
 
     public boolean[][] groundDetect() {
-
+        //game start up converts .png to array
         for (int y = 0; y < map.getHeight(); y++) {
             for (int x = 0; x < map.getWidth(); x++) {
                 if ((map.getRGB(x, y) != new Color(242, 101, 34).getRGB()) && (map.getRGB(x, y) != new Color(214, 217, 223).getRGB())) {

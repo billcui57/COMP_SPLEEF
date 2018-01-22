@@ -22,6 +22,7 @@ int right;
     int bottom ;
     
 
+    //places bubble to random x on map
     public void generate(boolean[][] ground) {
         do {
             bubblex = ran.nextInt(ground[0].length - size - 50);
@@ -35,6 +36,7 @@ int right;
         }
     }
 
+    //draw bubble
     public void draw(Graphics g) {
         right = bubblex + size;
         bottom= bubbley + size;

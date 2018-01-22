@@ -170,6 +170,8 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void formKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyReleased
         // TODO add your handling code here:
+        
+        //player stops moving
         switch (evt.getKeyCode()) {
             case 65:
             case 68:
@@ -189,6 +191,7 @@ public class MainFrame extends javax.swing.JFrame {
     private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
         // TODO add your handling code here:
 
+        //user inputs
         switch (evt.getKeyCode()) {
             case 87:
                 drawingArea1.player1.jump();
@@ -202,6 +205,11 @@ public class MainFrame extends javax.swing.JFrame {
             case 32:
                 if (drawingArea1.gun1.canShoot == true) {
                     drawingArea1.gun1.shoot(drawingArea1.player1.playerx, drawingArea1.player1.playery, drawingArea1.player1.faceDirection);
+                    try{
+                    drawingArea1.gun1.pew();
+                    }catch(Exception e){
+                        
+                    };
                 }
                 break;
             case 38:
@@ -216,10 +224,16 @@ public class MainFrame extends javax.swing.JFrame {
             case 76:
                 if (drawingArea1.gun2.canShoot == true) {
                     drawingArea1.gun2.shoot(drawingArea1.player2.playerx, drawingArea1.player2.playery, drawingArea1.player2.faceDirection);
+                    try{
+                    drawingArea1.gun2.pew();
+                    }catch(Exception e){
+                        
+                    };
                 }
                 break;
 
             case 27:
+                //user presses esc for pause menu
                 if ((drawingArea1.scene == 2)) {
                     drawingArea1.scene = 4;
                     MainMenuButt.setVisible(true);
@@ -248,6 +262,8 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void drawingArea1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_drawingArea1MousePressed
         // TODO add your handling code here:
+        
+        //developer tool for manually removing tiles
         for (int y = -10; y < 11; y++) {
             for (int x = -10; x < 11; x++) {
                 drawingArea1.ground[evt.getY() + y][evt.getX() + x] = false;
@@ -261,6 +277,8 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void MapChoice1ButtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MapChoice1ButtActionPerformed
         // TODO add your handling code here:
+        
+        //Country map
         drawingArea1.runGameStartUp = true;
         drawingArea1.mapName = "Map.png";
         MapChoice1Butt.setVisible(false);
@@ -271,6 +289,8 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void MapChoice2ButtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MapChoice2ButtActionPerformed
         // TODO add your handling code here:
+        
+        //Heaven map
         drawingArea1.runGameStartUp = true;
         drawingArea1.mapName = "map_sky.png";
         MapChoice1Butt.setVisible(false);
@@ -281,6 +301,8 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void MapChoice3ButtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MapChoice3ButtActionPerformed
         // TODO add your handling code here:
+        
+        //Hell map
         drawingArea1.runGameStartUp = true;
         drawingArea1.mapName = "map hell.png";
         MapChoice1Butt.setVisible(false);
@@ -291,6 +313,8 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void SeePastGamesButtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SeePastGamesButtActionPerformed
         // TODO add your handling code here:
+        
+        //Button to see past games
         drawingArea1.scene = 3;
 
         MapChoice1Butt.setVisible(false);
@@ -301,6 +325,8 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void RestartButtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RestartButtActionPerformed
         // TODO add your handling code here:
+        
+        //Button to restart
         drawingArea1.restart();
         drawingArea1.scene = 2;
 
@@ -313,6 +339,8 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void MainMenuButtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MainMenuButtActionPerformed
         // TODO add your handling code here:
+        
+        //Button to go to main menu
         drawingArea1.scene = 1;
         MapChoice1Butt.setVisible(true);
         MapChoice2Butt.setVisible(true);
@@ -325,11 +353,15 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void QuitButtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_QuitButtActionPerformed
         // TODO add your handling code here:
+        
+        //Button to quit
         System.exit(0);
     }//GEN-LAST:event_QuitButtActionPerformed
 
     private void drawingArea1MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_drawingArea1MouseMoved
         // TODO add your handling code here:
+        
+        //place holder for future rocket movement that follows mouse
     }//GEN-LAST:event_drawingArea1MouseMoved
 
     /**
