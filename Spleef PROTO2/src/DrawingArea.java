@@ -1,3 +1,4 @@
+
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
@@ -62,20 +63,17 @@ public class DrawingArea extends javax.swing.JPanel {
                 game(g);
                 break;
             case 3:
-                Image pastgame =  Toolkit.getDefaultToolkit().getImage("saved.png");
+                Image pastgame = Toolkit.getDefaultToolkit().getImage("saved.png");
                 g.drawImage(pastgame, 0, 0, this);
                 break;
             case 4:
-                 Image pauseMenu =  Toolkit.getDefaultToolkit().getImage("paused_menu.png");
+                Image pauseMenu = Toolkit.getDefaultToolkit().getImage("paused_menu.png");
                 g.drawImage(pauseMenu, 0, 0, this);
-                
+
                 break;
-        }   
+        }
 
     }
-    
-    
-    
 
     public void menu(Graphics g) {
         g.drawImage(mainMenu, 0, 0, this);
@@ -87,6 +85,7 @@ public class DrawingArea extends javax.swing.JPanel {
             }
             ground = new boolean[map.getHeight()][map.getWidth()];
             ground = groundDetect();
+
             player1 = new CPlayer();
             player2 = new CPlayer();
             player1.placeRandom(ground);
@@ -102,28 +101,28 @@ public class DrawingArea extends javax.swing.JPanel {
             runGameStartUp = false;
         }
     }
-    
-    public void restart(){
-        try {
-                map = ImageIO.read(new File(mapName));
-            } catch (IOException e) {
-                System.out.println("HEEEELLLPPPPP!!!!!!");
-            }
-            ground = new boolean[map.getHeight()][map.getWidth()];
-            ground = groundDetect();
-            player1 = new CPlayer();
-            player2 = new CPlayer();
-            player1.placeRandom(ground);
-            player2.placeRandom(ground);
-            bubble1 = new CRandomWeaponBubble();
-            bubble1.generate(ground);
-            bubble2 = new CRandomWeaponBubble();
-            bubble2.generate(ground);
 
-            gun1 = new CGun();
-            gun2 = new CGun();
-            scene = 2;
-            runGameStartUp = false;
+    public void restart() {
+        try {
+            map = ImageIO.read(new File(mapName));
+        } catch (IOException e) {
+            System.out.println("HEEEELLLPPPPP!!!!!!");
+        }
+        ground = new boolean[map.getHeight()][map.getWidth()];
+        ground = groundDetect();
+        player1 = new CPlayer();
+        player2 = new CPlayer();
+        player1.placeRandom(ground);
+        player2.placeRandom(ground);
+        bubble1 = new CRandomWeaponBubble();
+        bubble1.generate(ground);
+        bubble2 = new CRandomWeaponBubble();
+        bubble2.generate(ground);
+
+        gun1 = new CGun();
+        gun2 = new CGun();
+        scene = 2;
+        runGameStartUp = false;
     }
 
     public void game(Graphics g) {
@@ -141,25 +140,29 @@ public class DrawingArea extends javax.swing.JPanel {
         gun2.update(player2.playerx, player2.playery, ground, map);
         gun2.show(g);
 
-        if ((player1.playerx + player1.size > bubble1.bubblex) && (player1.playerx < bubble1.bubblex + bubble1.size) && (player1.playery + player1.size > bubble1.bubbley) && (player1.playery < bubble1.bubbley + bubble1.size)) {
+        if ((player1.right > bubble1.bubblex) && (player1.playerx < bubble1.right)
+                && (player1.bottom > bubble1.bubbley) && (player1.playery < bubble1.bottom)) {
             gun1.weapontype = bubble1.gun + 2;
             bubble1.generate(ground);
 
         }
 
-        if ((player2.playerx + player2.size > bubble1.bubblex) && (player2.playerx < bubble1.bubblex + bubble1.size) && (player2.playery + player2.size > bubble1.bubbley) && (player2.playery < bubble1.bubbley + bubble1.size)) {
+        if ((player2.right > bubble1.bubblex) && (player2.playerx < bubble1.right)
+                && (player2.bottom > bubble1.bubbley) && (player2.playery < bubble1.bottom)) {
             gun2.weapontype = bubble1.gun + 2;
             bubble1.generate(ground);
 
         }
 
-        if ((player1.playerx + player1.size > bubble2.bubblex) && (player1.playerx < bubble2.bubblex + bubble2.size) && (player1.playery + player1.size > bubble2.bubbley) && (player1.playery < bubble2.bubbley + bubble2.size)) {
+        if ((player1.right > bubble2.bubblex) && (player1.playerx < bubble2.right)
+                && (player1.bottom > bubble2.bubbley) && (player1.playery < bubble2.bottom)) {
             gun1.weapontype = bubble2.gun + 2;
             bubble2.generate(ground);
 
         }
 
-        if ((player2.playerx + player2.size > bubble2.bubblex) && (player2.playerx < bubble2.bubblex + bubble2.size) && (player2.playery + player2.size > bubble2.bubbley) && (player2.playery < bubble2.bubbley + bubble2.size)) {
+        if ((player2.right > bubble2.bubblex) && (player2.playerx < bubble2.right)
+                && (player2.bottom > bubble2.bubbley) && (player2.playery < bubble2.bottom)) {
             gun2.weapontype = bubble2.gun + 2;
             bubble2.generate(ground);
 
@@ -175,7 +178,7 @@ public class DrawingArea extends javax.swing.JPanel {
 
         if (player1.lost == true) {
             System.out.println("player 2 wins");
-            Image p2win =  Toolkit.getDefaultToolkit().getImage("player2wins.png");
+            Image p2win = Toolkit.getDefaultToolkit().getImage("player2wins.png");
             g.drawImage(p2win, WIDTH, WIDTH, this);
 
             try {
@@ -184,22 +187,22 @@ public class DrawingArea extends javax.swing.JPanel {
                 File outputfile = new File("saved.png");
                 ImageIO.write(map, "png", outputfile);
             } catch (IOException e) {
-                
+
             }
 
             t1.stop();
         } else if (player2.lost == true) {
 
             System.out.println("player 1 wins");
-            Image p1win =  Toolkit.getDefaultToolkit().getImage("player1wins.png");
+            Image p1win = Toolkit.getDefaultToolkit().getImage("player1wins.png");
             g.drawImage(p1win, WIDTH, WIDTH, this);
-              try {
+            try {
                 // retrieve image
 
                 File outputfile = new File("saved.png");
                 ImageIO.write(map, "png", outputfile);
             } catch (IOException e) {
-                
+
             }
             t1.stop();
         }

@@ -18,22 +18,28 @@ public class CRandomWeaponBubble {
     int bubbley;
     int gun;
     int size = 20;
+int right;
+    int bottom ;
+    
 
     public void generate(boolean[][] ground) {
-        do{
-        bubblex = ran.nextInt(ground[0].length - size -50);
-        bubbley = ran.nextInt(ground.length-size-300);
-        gun=ran.nextInt(3);
-        }while((ground[bubbley + 1 +size][bubblex] == false)||(ground[bubbley][bubblex+size]==true));
-        
-        while (ground[bubbley - 1 +size][bubblex] == true) {
+        do {
+            bubblex = ran.nextInt(ground[0].length - size - 50);
+            bubbley = ran.nextInt(ground.length - size - 300);
+            
+            gun = ran.nextInt(3);
+        } while ((ground[bubbley + 1 + size][bubblex] == false) || (ground[bubbley][bubblex + size] == true));
+
+        while (ground[bubbley - 1 + size][bubblex] == true) {
             bubbley--;
         }
     }
-    
-    public void draw(Graphics g){
+
+    public void draw(Graphics g) {
+        right = bubblex + size;
+        bottom= bubbley + size;
         g.fillOval(bubblex, bubbley, size, size);
-        switch(gun){
+        switch (gun) {
             case 0:
                 g.drawString("Shotgun", bubblex, bubbley);
                 break;
@@ -41,10 +47,9 @@ public class CRandomWeaponBubble {
                 g.drawString("Rocket", bubblex, bubbley);
                 break;
             case 2:
-                g.drawString("Machine Gun", bubblex,bubbley);
+                g.drawString("Machine Gun", bubblex, bubbley);
                 break;
         }
     }
 
 }
-

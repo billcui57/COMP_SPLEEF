@@ -1,3 +1,4 @@
+
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.image.ImageObserver;
@@ -19,11 +20,16 @@ public class CPlayer {
     int GRAVITY = 1;
     int velocity = 0;
     int size = 20;
-    boolean canJump = true;
+    boolean canJump = false;
     boolean lost = false;
 
-    public void update(boolean[][] ground) {
+    int right;
+    int bottom ;
 
+
+    public void update(boolean[][] ground) {
+        right= playerx + size;
+        bottom= playery +size;
         boolean fall = true;
 
         //test if player can fit through hole in ground or wall
@@ -70,8 +76,9 @@ public class CPlayer {
         }
 
         //player loses
-        if (playery > ground.length - 30) {
+        if (playery > ground.length - 100) {
             velocity = 0;
+            fall = false;
             playery--;
             lost = true;
             System.out.println("Loser");
@@ -132,8 +139,8 @@ public class CPlayer {
         do {
             playerx = ran.nextInt(ground[0].length - 50);
             for (int y = 0; y < ground.length; y++) {
-                for (int i = -size; i < size+size; i++) {
-                    if (ground[y][playerx + i-1] == true) {
+                for (int i = -size; i < size + size; i++) {
+                    if (ground[y][playerx + i - 1] == true) {
                         isThereGround = true;
                     }
                 }
