@@ -179,13 +179,14 @@ public class CGun {
 
     //WIP audio
     public void pew() throws Exception {
+        
         InputStream music;
         try {
-            music = new FileInputStream(new File("pew.mp3"));
+            music = new FileInputStream(new File("pew.wav"));
             AudioStream audios = new AudioStream(music);
             AudioPlayer.player.start(audios);
         } catch (Exception e) {
-            
+            System.out.println("hi");
         }
 
     }

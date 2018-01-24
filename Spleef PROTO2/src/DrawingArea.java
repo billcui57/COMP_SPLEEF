@@ -33,6 +33,8 @@ public class DrawingArea extends javax.swing.JPanel {
         for (int i = 0; i < avatar.length; i++) {
             avatar[i] = Toolkit.getDefaultToolkit().getImage("sprite_0" + i + ".png");
         }
+        
+        
 
     }
 
